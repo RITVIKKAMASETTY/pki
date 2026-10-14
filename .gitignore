@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+*.pyc
 *.pyo
 *.pyd
 .Python
@@ -28,6 +29,7 @@ ENV/
 # Node / Frontend
 node_modules/
 dist/
+build/
 .vite/
 *.local
 frontend/dist/
