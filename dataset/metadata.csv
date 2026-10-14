@@ -1,0 +1,15 @@
+filename,type,subject_cn,issuer_cn,valid_from,valid_until,note
+roots/root_ca_01.pem,root,AI PKI Root CA,AI PKI Root CA,2024-10-03,2036-09-30,Primary trust anchor
+roots/root_ca_02.pem,root,AI PKI Secondary Root CA,AI PKI Secondary Root CA,2025-10-03,2031-10-02,Secondary trust anchor
+intermediates/intermediate_01.pem,intermediate,AI Intermediate CA 1,AI PKI Root CA,2026-04-06,2029-10-02,Signs AI services group A
+intermediates/intermediate_02.pem,intermediate,AI Intermediate CA 2,AI PKI Root CA,2026-07-05,2028-10-02,Signs AI services group B
+intermediates/intermediate_03_expired.pem,intermediate,AI Intermediate CA 3 (Expired),AI PKI Secondary Root CA,2024-10-03,2026-09-03,EXPIRED intermediate for broken-chain tests
+leaf/service_01_inference.pem,leaf,inference.ai.company.com,AI Intermediate CA 1,2026-08-04,2027-08-04,VALID - Inference API
+leaf/service_02_model_registry.pem,leaf,models.ai.company.com,AI Intermediate CA 1,2026-09-03,2027-09-03,VALID - Model Registry
+leaf/service_03_training.pem,leaf,training.ai.company.com,AI Intermediate CA 2,2025-10-21,2026-10-21,WARNING - Expires in 18 days
+leaf/service_04_vector_db.pem,leaf,vector.ai.company.com,AI Intermediate CA 2,2025-08-29,2026-08-29,CRITICAL - EXPIRED 35 days ago
+leaf/service_05_monitoring.pem,leaf,monitoring.ai.company.com,AI Intermediate CA 1,2026-09-23,2027-09-23,HIGH - Weak RSA 1024 key
+leaf/service_06_data_pipeline.pem,leaf,data-pipeline.ai.company.com,AI Intermediate CA 2,2026-09-28,2027-09-28,HIGH - SAN hostname mismatch
+leaf/service_07_feature_store.pem,leaf,feature-store.ai.company.com,Unknown External CA,2026-09-28,2027-09-28,"CRITICAL - Broken chain, unknown issuer"
+leaf/service_08_orchestrator.pem,leaf,orchestrator.ai.company.com,AI Intermediate CA 2,2026-09-13,2027-09-13,VALID - Orchestrator API
+leaf/service_09_legacy.pem,leaf,legacy.ai.company.com,AI Intermediate CA 3 (Expired),2026-03-17,2027-03-17,CRITICAL - Intermediate CA expired
